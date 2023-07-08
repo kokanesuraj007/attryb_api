@@ -9,7 +9,7 @@ require("dotenv").config();
 var _require = require("./config/db"),
     connection = _require.connection;
 
-var port = 8000 || process.env.PORT;
+var port = process.env.PORT || 8000;
 
 var cors = require("cors");
 

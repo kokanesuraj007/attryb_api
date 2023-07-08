@@ -19,6 +19,11 @@ var inventoryRouter = require("./routes/inventory.routes");
 
 app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST"]
+}));
+app.options("*", cors());
 app.get("/", function (req, res) {
   res.send("home");
 });

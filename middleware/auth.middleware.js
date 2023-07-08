@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const userModel = require("../model/user.model");
-
+const jwt_secret = suraj97
 const authMiddleware = asyncHandler(async (req, res, next) => {
   let token;
   if (req?.headers?.authorization?.startsWith("Bearer")) {
@@ -10,7 +10,7 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
     console.log("token: " + token);
     try {
       if (token) {
-        const decoded = jwt.verify(token, process.env.jwt_secret);
+        const decoded = jwt.verify(token,jwt_secret);
         console.log("decoded: " + decoded);
         const user = await userModel.findById(decoded?.id);
         req.user = user;

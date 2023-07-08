@@ -4,7 +4,8 @@ var mongoose = require("mongoose");
 
 require("dotenv").config();
 
-var connection = mongoose.connect(process.env.DBURL);
+var DBURL = "mongodb+srv://sk:sk@cluster0.pwxhqpd.mongodb.net/?retryWrites=true&w=majority";
+var connection = mongoose.connect(DBURL);
 module.exports = {
   connection: connection
 };
